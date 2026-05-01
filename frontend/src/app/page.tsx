@@ -18,5 +18,9 @@ export default function Home() {
     }
   }, [isAuthenticated, loading, router]);
 
-  return null;
+  return (
+    <div className="flex items-center justify-center h-screen">
+      <p>Loading...</p>
+    </div>
+  );
 }
