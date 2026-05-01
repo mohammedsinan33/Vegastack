@@ -9,14 +9,18 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    if (loading) return;
-
-    if (isAuthenticated) {
-      router.push("/feed");
-    } else {
-      router.push("/signup");
+    if (!loading) {
+      if (isAuthenticated) {
+        router.push("/feed");
+      } else {
+        router.push("/signup");
+      }
     }
   }, [isAuthenticated, loading, router]);
 
-  return null;
+  return (
+    <div className="flex items-center justify-center h-screen">
+      <p className="text-gray-600">Loading...</p>
+    </div>
+  );
 }
